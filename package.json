@@ -24,6 +24,8 @@
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
     "redux-form": "^7.2.3",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   },
