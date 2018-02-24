@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
-import SearchForm from './searchForm';
+import PokemonContainer from '../containers/pokemon_container';
 
 export default class App extends Component {
 
   constructor(props) {
     super(props);
-    
-  }
-
-  onSubmit() {
-    console.log('clicked')
   }
 
   render() {
     return (
       <div>
         <p>PokeSearch</p>
-        <SearchForm />
+        <PokemonContainer />
       </div>
     );
   }
