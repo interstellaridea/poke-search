@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { searchPokemon } from '../actions/index';
+import { searchPokemon, isLoading } from '../actions/index';
 import SearchBar from '../components/search_bar';
+
+import PokeRender from '../components/poke_render';
 
 class PokemonContainer extends Component {
 
@@ -11,30 +13,7 @@ class PokemonContainer extends Component {
   }
 
   renderPokemon() {
-    if (!this.props.pokemon) {
-      return <h4>Enter a name to search...</h4>
-    } else {
-      const {
-        id,
-        name,
-        weight,
-        height,
-        base_experience,
-        sprites: { front_default: pic} = {}, // es6 destruct with name assign & def val if undefined
-        types
-      } = this.props.pokemon;
-      
-      return (
-        <ul key={id}>
-          <img height='50%' width='50%' alt={name} src={pic} />
-          <li>name: {name}</li>
-          <li>type: {types.map( ({type}) => `${type.name} ` )}</li>
-          <li>weight: {weight}</li>
-          <li>height: {height}</li>
-          <li>base exp: {base_experience}</li>
-        </ul>
-      );
-    }
+    return this.props.pokemon ? <PokeRender data = { this.props.pokemon } /> : <h4>Enter a name to search...</h4>
   }
 
   render() {
@@ -50,8 +29,8 @@ class PokemonContainer extends Component {
   }
 }
 
-function mapStateToProps({pokemon}) {
-  return { pokemon };
+function mapStateToProps(state) {
+  return { pokemon: state.pokemon };
 }
 
 function mapDispatchToProps(dispatch) {
