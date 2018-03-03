@@ -7,7 +7,6 @@ export default function( state = INIT_STATE , action ) {
     
     case FETCH_POKEMON:
       return action.payload;
-
     default:
       return state;
   }

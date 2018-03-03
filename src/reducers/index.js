@@ -5,7 +5,7 @@ import PokemonReducer from './reducer_pokemon';
 
 const rootReducer = combineReducers({
   form: formReducer,
-  pokemon: PokemonReducer
+  pokemon: PokemonReducer,
 });
 
 export default rootReducer;
