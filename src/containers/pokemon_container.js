@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { searchPokemon, isLoading } from '../actions/index';
+import { searchPokemon } from '../actions/index';
 import SearchBar from '../components/search_bar';
 
 import PokeRender from '../components/poke_render';
@@ -29,8 +29,8 @@ class PokemonContainer extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { pokemon: state.pokemon };
+function mapStateToProps({pokemon}) {
+  return { pokemon };
 }
 
 function mapDispatchToProps(dispatch) {
